@@ -1,0 +1,112 @@
+<!-- @format -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edit-item</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a class="ind-a" href="/">Home</a></li>
+          <li class="ind-li">
+            <a href="/items">List of Items</a>
+          </li>
+          <% if(user!==null){%>
+          <li>
+            <a href="/items/add">add-item</a>
+          </li>
+
+          <li>
+            <a href="#">hello: <%= user.name %></a>
+          </li>
+          <%}else{%>
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+
+          <li class="ind-li"><a href="/users/login">login</a></li>
+          <%}%>
+
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container hero-section">
+        <h2 class="secondary-heading">update-item</h2>
+        <div class="add-item-form">
+          <h3 class="error"></h3>
+          <form
+            action="/items/<%= item.id %>/edit"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <label for="name">item-name</label>
+            <input
+              class="flex-100"
+              type="text"
+              name="name"
+              placeholder="item name"
+              id="name"
+              value="<%= item.name %>"
+            />
+
+            <label for="quantity">quantity</label>
+
+            <input
+              class="flex-100"
+              type="number"
+              id="quantity"
+              name="quantity"
+              placeholder="quantity"
+              value="<%= item.quantity %>"
+            />
+
+            <label for="price">item-price</label>
+
+            <input
+              type="number"
+              name="price"
+              id="price"
+              placeholder="price"
+              value="<%= item.price %>"
+            />
+
+            <label for="image">item-image</label>
+            <input type="file" name="image" id="image" />
+
+            <div
+              style="width: 5rem; height: 5rem; margin-bottom: 0.5rem"
+              class=""
+            >
+              <img
+                class="full-width"
+                src="/images/<%= item.image %>"
+                alt="item-img"
+              />
+            </div>
+
+            <label for="category">category</label>
+            <select name="category" id="category">
+              <option value="none" selected hidden disabled>
+                select category
+              </option>
+              <option value="clothes">clothes</option>
+              <option value="footwears">footwears</option>
+              <option value="cosmetics">cosmetics</option>
+            </select>
+
+            <input type="submit" placeholder="submit" value="update" />
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

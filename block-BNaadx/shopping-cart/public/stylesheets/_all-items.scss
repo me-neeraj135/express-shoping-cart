@@ -1,0 +1,163 @@
+/** @format */
+
+.height {
+  height: 100vh;
+}
+.all-items-section {
+  padding: 1rem 0;
+  height: 100vh;
+  aside {
+    height: 80vh;
+    border: 1px solid slategray;
+    border-radius: 0.2rem;
+    text-align: center;
+    text-transform: capitalize;
+
+    padding-top: 1rem;
+
+    .aside-ul {
+      text-align: center;
+      .aside-li {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-radius: 0.2rem;
+
+        border: 1px solid slategray;
+        a {
+          font-size: 1.2rem;
+          color: palevioletred;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  .side-div {
+    overflow: scroll;
+    border-radius: 0.2rem;
+    gap: 1rem;
+    padding-bottom: 2rem;
+
+    .item-li {
+      width: 15rem;
+      height: 26rem;
+      border: 1px solid slategray;
+      border-radius: 0.2rem;
+
+      .item-figure {
+        height: 80%;
+        border-radius: 0.2rem;
+      }
+
+      .itm-detail-box {
+        padding-left: 0.5rem;
+        .itm-name {
+          padding: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+
+.side-div::-webkit-scrollbar {
+  display: none;
+}
+
+// single-item-styling
+
+// user comment form
+
+.user-comment-form {
+  width: 30%;
+  margin-top: 1rem;
+  input {
+    width: 100%;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    border: 1px solid slategray;
+  }
+  textarea {
+    width: 100%;
+    resize: none;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin: 0.5rem 0;
+    border: 1px solid slategray;
+  }
+}
+
+.review-box {
+  margin: 0.5rem 0;
+
+  .rv-heading {
+    font-size: 0.8rem;
+
+    text-transform: lowercase;
+    font-weight: 600;
+    color: rgb(53, 52, 52);
+  }
+  .review {
+    font-size: 0.8rem;
+  }
+
+  .review-edit {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: green;
+    text-transform: capitalize;
+  }
+  .review-delete {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: brown;
+    text-transform: capitalize;
+    margin-left: 0.5rem;
+  }
+}
+
+// item-comment-edit
+
+.comment-edit-box {
+  width: 50%;
+  margin: auto;
+  margin-top: 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid slategray;
+  form {
+    input {
+      width: 100%;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid slategray;
+    }
+    textarea {
+      width: 100%;
+      font-size: 1.1rem;
+
+      margin: 0.5rem 0;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid slategray;
+      resize: none;
+    }
+  }
+}
+
+// user-cart-styling
+
+.cart-quant {
+  padding: 0rem 1rem;
+  margin: 1rem 0;
+  .cart-qa {
+    font-size: 1rem;
+    font-weight: 700;
+    color: black;
+  }
+}
+.cart-quantity {
+  font-weight: 700;
+  text-transform: capitalize;
+}

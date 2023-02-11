@@ -1,0 +1,103 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>all-items</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a class="ind-a" href="/">Home</a></li>
+          <li class="ind-li"><a href="/items">List of Items</a></li>
+
+          <% if(user){%> <% if(user.isAdmin){%>
+          <li class="ind-li"><a href="/items/add">add-item</a></li>
+
+          <%}%>
+
+          <li class="ind-li"><a href="#">hello:<%= user.name %></a></li>
+
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+
+          <% if(user.isAdmin===false){%>
+
+          <figure style="width: 2rem" class="cart-figure">
+            <a href="/users/<%= user._id %>/list-cart">
+              <img
+                class="full-width"
+                src="/images/cart-icon-28356.png"
+                alt="cart"
+              />
+            </a>
+          </figure>
+
+          <%}%> <%}else{%>
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+          <li class="ind-li"><a href="/users/login">login</a></li>
+
+          <%}%>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main -->
+
+    <main class="">
+      <%if(items.length>0){%>
+
+      <h2 class="secondary-heading">all products</h2>
+      <%}%>
+
+      <section class="all-items-section container flex justify-between">
+        <aside class="flex-20">
+          <h3 class="tertiary-heading">filter by category</h3>
+
+          <ul class="aside-ul">
+            <% uniqueCategory.forEach(category=>{%>
+            <li class="aside-li">
+              <a href="/items/<%= category %>/filter"><%= category %></a>
+            </li>
+            <%})%>
+          </ul>
+        </aside>
+        <ul class="side-div flex flex-70 flex-wrap-yes">
+          <% if(items.length>0){%> <% items.forEach(elm=>{%>
+
+          <li class="item-li">
+            <figure class="item-figure">
+              <img
+                class="full-width"
+                src="/images/<%= elm.image %>"
+                alt="item-img"
+              />
+            </figure>
+
+            <div class="itm-detail-box">
+              <p class="itm-name">
+                <span> item name:<%= elm.name%></span> <br />
+                <span>price:₹<%= elm.price %></span>
+              </p>
+              <button class="btn">
+                <a href="/items/<%= elm.id %>"> details </a>
+              </button>
+            </div>
+          </li>
+
+          <%})%> <%}else{%>
+          <h2 class="secondary-heading">no items present</h2>
+
+          <%}%>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

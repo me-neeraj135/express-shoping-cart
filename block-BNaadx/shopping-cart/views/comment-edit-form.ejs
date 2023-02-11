@@ -1,0 +1,76 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a href="/">Home</a></li>
+          <li class="ind-li"><a href="/items">List of Items</a></li>
+
+          <% if(user!==undefined){%>
+
+          <li class="ind-li">
+            <a href="/admin/signup">hello:<%= user.name %></a>
+          </li>
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+
+          <% if(user.isAdmin===false){%>
+          <figure style="width: 2rem" class="cart-figure">
+            <a href="/users/<%= user._id %>/list-cart">
+              <img
+                class="full-width"
+                src="/images/cart-icon-28356.png"
+                alt="cart"
+              />
+            </a>
+          </figure>
+
+          <%}%> <%}else{%>
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+          <li class="ind-li"><a href="/users/login">login</a></li>
+
+          <%}%>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="container">
+        <h3 class="secondary-heading">update comment</h3>
+        <div class="comment-edit-box">
+          <h3 style="height: 1rem" class="error">error</h3>
+          <form action="/comments/<%= comment.id %>/edit" method="post">
+            <input
+              type="text"
+              name="name"
+              placeholder="name"
+              value="<%= comment.name%>"
+            />
+            <textarea
+              name="comment"
+              id=""
+              cols="30"
+              rows="5"
+              placeholder="comments..."
+            >
+            <%= comment.comment%>
+        </textarea
+            >
+            <button class="btn" type="submit">update</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+/** @format */
+
+.login-fom-box {
+  border-radius: 1rem;
+
+  //   border: 1px solid slategray;
+  form {
+    width: 100%;
+
+    padding: 1rem;
+    border: 1px solid slategray;
+    border-radius: 1rem;
+    margin-top: 2rem;
+
+    label {
+      text-transform: capitalize;
+    }
+    input {
+      width: 100%;
+      font-size: 1rem;
+      text-transform: capitalize;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid slategray;
+      border-radius: 1rem;
+    }
+  }
+}

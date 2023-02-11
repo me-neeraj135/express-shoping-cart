@@ -1,0 +1,94 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp for Admin</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a class="ind-a" href="/">Home</a></li>
+          <li class="ind-li"><a href="/items">List of Items</a></li>
+
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+          <li class="ind-li"><a href="/users/login">login</a></li>
+        <% if(session!==undefined){%>
+
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+        <%}%>
+
+
+
+        
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+      <section class="container hero-section">
+        <div class="container flex justify-evenly flex align-center">
+          <figure class="flex-40">
+            <img
+              src="/images/shopping-4059182_1280.png"
+              alt=""
+              class="full-width"
+            />
+          </figure>
+          <div class="flex-50 signup-form-box">
+            <h2 class="secondary-heading">Sign up</h2>
+            <div>
+              <form action="/admin/signup" method="POST">
+                <h3 style="height: 1rem;" class="error"><%= error %></h3>
+                <label for="name"> name </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="enter your name"
+               
+                  class="sn-input"
+                />
+                <label for="email">email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="enter your email"
+                
+                  id="email"
+                  class="sn-input"
+
+                />
+                <label for="password">password</label>
+
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="set your password"
+                  class="sn-input"
+                 
+                />
+                <div class="flex align-center check-box-div">
+                  <input type="checkbox" name="isAdmin" id="admin" />
+                  <label class="admin-label" for="admin">you are admin</label>
+
+                </div>
+                <input type="submit" class="sn-input" value="register"></input>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

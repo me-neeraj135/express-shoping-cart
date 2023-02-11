@@ -1,0 +1,40 @@
+/** @format */
+
+@import "reset";
+@import "global";
+@import "flex";
+@import "index";
+@import "sign-up";
+@import "login";
+@import "all-items";
+@import "add-item";
+// styling
+.primary-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.secondary-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.tertiary-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0.5rem 0;
+}
+.quaternary-heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: red;
+  text-align: center;
+}

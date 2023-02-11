@@ -1,0 +1,128 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>single-item</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a href="/">Home</a></li>
+          <li class="ind-li"><a href="/items">List of Items</a></li>
+
+          <% if(user!==undefined){%>
+
+          <li class="ind-li">
+            <a href="/admin/signup">hello:<%= user.name %></a>
+          </li>
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+
+          <% if(user.isAdmin===false){%>
+          <figure style="width: 2rem" class="cart-figure">
+            <a href="/users/<%= user._id %>/list-cart">
+              <img
+                class="full-width"
+                src="/images/cart-icon-28356.png"
+                alt="cart"
+              />
+            </a>
+          </figure>
+
+          <%}%> <%}else{%>
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+          <li class="ind-li"><a href="/users/login">login</a></li>
+
+          <%}%>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main -->
+
+    <main>
+      <section class="container hero-section">
+        <div class="flex justify-evenly">
+          <figure class="flex-25 single-item-figure">
+            <img class="full-width" src="/images/<%= item.image %>" alt="img" />
+          </figure>
+          <div class="flex-60 single-item-detail-box">
+            <p style="height: 1rem" class="error"><%= error %></p>
+            <p class="item-details">
+              <span>name:<%= item.name%> by biba</span> <br />
+              <span>price: ₹<%= item.price%></span> <br />
+              <span
+                >likes:
+                <a href="/items/<%= item.id %>/likes">👍<%= item.likes%></a>
+              </span>
+              <br />
+              <span
+                >dislikes:
+                <a href="/items/<%= item.id%>/dislikes">
+                  👎<%=item.dislikes%>
+                </a>
+              </span>
+              <br />
+            </p>
+
+            <% if(user!==undefined){%> <% if(user!==null){%>
+            <%if(user.isAdmin){%>
+
+            <button class="btn">
+              <a href="/items/<%= item.id %>/edit">edit</a>
+            </button>
+            <button class="btn">
+              <a href="/items/<%= item.id %>/delete">delete</a>
+            </button>
+
+            <%}else{%>
+            <button class="btn">
+              <a href="/items/<%= item.id%>/cart">add to cart</a>
+            </button>
+
+            <button class="btn">
+              <a href="#">buy now </a>
+            </button>
+
+            <form
+              class="user-comment-form"
+              action="/items/<%= item.id %>/comment"
+              method="post"
+            >
+              <input type="text" name="name" placeholder="name" />
+              <textarea
+                name="comment"
+                id=""
+                cols="30"
+                rows="3"
+                placeholder="review..."
+              ></textarea>
+              <button class="btn" type="submit">review</button>
+            </form>
+            <% if(item.comments.length>0){%> <% item.comments.forEach(elm=>{%>
+
+            <div class="review-box">
+              <p>
+                <span class="rv-heading">review by <%= elm.name %>:</span>
+                <span class="review"> <%= elm.comment%></span>
+              </p>
+              <a class="review-edit" href="/comments/<%= elm.id%>/edit">edit</a>
+              <a class="review-delete" href="/comments/<%= elm.id%>/delete"
+                >delete</a
+              >
+            </div>
+            <%})%> <%}%> <%} %> <%}%> <%}%>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

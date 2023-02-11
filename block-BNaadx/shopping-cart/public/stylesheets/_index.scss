@@ -1,0 +1,45 @@
+/** @format */
+
+header {
+  background-color: #ffff;
+  box-shadow: 0 0 4px 4px slategray;
+  nav {
+    .logo {
+      a {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        color: black;
+        font-weight: 600;
+      }
+    }
+    ul {
+      li {
+        height: 4rem;
+        padding: 1.5rem 1rem;
+
+        a {
+          font-size: 0.9rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: black;
+        }
+        &:hover {
+          border-bottom: 2px solid #e95db0;
+        }
+      }
+    }
+  }
+}
+// main
+.hero-section {
+  //   height: 100vh;
+  padding-top: 3rem;
+}
+.para {
+  font-size: 0.8rem;
+  text-align: justify;
+  color: black;
+}
+.padding-tb {
+  padding: 1rem 0;
+}

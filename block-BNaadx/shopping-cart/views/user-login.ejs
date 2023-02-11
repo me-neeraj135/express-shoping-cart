@@ -1,0 +1,52 @@
+<!-- @format -->
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>home</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a href="/">Home</a></li>
+          <li class="ind-li"><a href="/items">List of Items</a></li>
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+          <li class="ind-li"><a href="/users/login">login</a></li>
+
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="container hero-section flex justify-evenly">
+        <figure class="flex-30">
+          <img class="full-width" src="/images/woman-4495395_1280.png" alt="" />
+        </figure>
+
+        <div class="login-fom-box flex-50">
+          <h2 class="secondary-heading">login here</h2>
+          <form action="/users/login" method="post">
+            <h3 style="height: 1rem" class="error"><%= error %></h3>
+
+            <label for="email">email</label> <br />
+            <input type="email" id="email" name="email" placeholder="email" />
+            <label for="password">password</label><br />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+            />
+            <button type="submit" class="btn btn-primary">login</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

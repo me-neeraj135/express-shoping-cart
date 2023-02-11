@@ -1,0 +1,74 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>home</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+      <nav class="container ind-nav flex justify-between align-center">
+        <div class="logo">
+          <a href="/">shopping-cart</a>
+        </div>
+        <ul class="ind-ul flex align-center">
+          <li class="ind-li"><a class="ind-a" href="/">Home</a></li>
+          <li class="ind-li"><a href="/items">List of Items</a></li>
+
+          <% if(user){%> <% if(user.isAdmin){%>
+          <li class="ind-li"><a href="/items/add">add-item</a></li>
+
+          <%}%>
+
+          <li class="ind-li"><a href="/items">hello:<%= user.name %></a></li>
+
+          <li class="ind-li"><a href="/users/logout">logout</a></li>
+          <%if(user.isAdmin===false){%>
+
+          <figure style="width: 2rem" class="cart-figure">
+            <a href="/users/<%= user._id %>/list-cart">
+              <img
+                class="full-width"
+                src="/images/cart-icon-28356.png"
+                alt="cart"
+              />
+            </a>
+          </figure>
+          <%}%> 
+          
+          <%}else{%>
+          <li class="ind-li"><a href="/admin/signup">signup</a></li>
+          <li class="ind-li"><a href="/users/login">login</a></li>
+
+          <%}%>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="container hero-section">
+        <article class="ind-article flex align-center justify-evenly">
+          <figure class="ind-figure flex-40">
+            <img
+              class="full-width"
+              src="/images/girl-5893801_1920.png"
+              alt="home-banner"
+            />
+          </figure>
+          <div class="flex-50">
+            <h1 class="primary-heading">welcome to shopping-cart</h1>
+            <p class="para padding-tb">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+              eaque, deleniti earum minima expedita, maiores placeat ipsa quam,
+              fugit sequi qui. Consequuntur esse id ipsum omnis autem aut vel
+              fugiat! Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Ullam, amet. Eum voluptate quasi omnis enim illum labore, atque,
+              tempore provident quo veritatis numquam dolores et inventore
+              beatae? Magnam, eligendi corrupti?
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
